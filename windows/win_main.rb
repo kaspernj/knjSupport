@@ -6,7 +6,7 @@ class Win_main
 		Knj::Thread.new do
 			while true
 				self.refresh_status
-				sleep 1
+				sleep 0.3
 			end
 		end
 		
@@ -83,22 +83,33 @@ class Win_main
 	
 	def refresh_status
 		if @forward_ssh and @forward_ssh.open
-			@glade["labStatusSSHPort"].label = sprintf(_("SSH port open (%s)"), @ssh_remote_port.to_s)
+			newt = sprintf(_("SSH port open (%s)"), @ssh_remote_port.to_s)
 		else
-			@glade["labStatusSSHPort"].label = _("SSH port closed")
+			newt = _("SSH port closed")
 		end
+		
+		@glade["labStatusSSHPort"].label = newt if @glade["labStatusSSHPort"].label != newt
+		
 		
 		if @forward_vnc and @forward_vnc.open
-			@glade["labStatusVNCPort"].label = sprintf(_("VNC port open (%s)"), @vnc_remote_port.to_s)
+			newt = sprintf(_("VNC port open (%s)"), @vnc_remote_port.to_s)
 		else
-			@glade["labStatusVNCPort"].label = _("VNC port closed")
+			newt = _("VNC port closed")
 		end
 		
+		@glade["labStatusVNCPort"].label = newt if @glade["labStatusVNCPort"].label != newt
+		
+		
 		if @vnc and @vnc.open?
-			@glade["labStatusVNCServer"].label = sprintf(_("VNC server running (%s)"), @vnc_local_port.to_s)
+			newt = sprintf(_("VNC server running (%s)"), @vnc_local_port.to_s)
 		else
-			@glade["labStatusVNCServer"].label = _("VNC not running")
+			newt = _("VNC server not running")
 		end
+		
+		@glade["labStatusVNCServer"].label = newt if @glade["labStatusVNCServer"].label != newt
+		
+		id = "#{@ssh_remote_port}-#{@vnc_remote_port}-#{@vnc_local_port}"
+		@glade["labStatusID"].label = id if @glade["labStatusID"].label != id
 	end
 	
 	def on_window_destroy
