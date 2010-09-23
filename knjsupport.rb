@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 Dir.chdir(File.dirname(__FILE__))
+require "gtk2"
 require "knj/autoload"
 include Knj
 include GetText

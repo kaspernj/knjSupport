@@ -50,14 +50,23 @@ class Win_main
 		
 		@ssh_remote_port = self.random_remote_port($config_ssh_server[:host])
 		@vnc_remote_port = self.random_remote_port($config_ssh_server[:host])
-		@vnc_local_port = self.random_local_port
+		
+		if RUBY_PLATFORM == "i386-mingw32"
+			@vnc_local_port = 5900
+			@ssh_local_host = "127.0.1.1"
+			@vnc_local_host = "127.0.1.1"
+		else
+			@vnc_local_port = self.random_local_port
+			@ssh_local_host = "0.0.0.0"
+			@vnc_local_host = "0.0.0.0"
+		end
 		
 		begin
 			@forward_ssh = @ssh.forward(
 				:type => "remote",
 				:port_local => 22,
 				:port_remote => @ssh_remote_port,
-				:host => "0.0.0.0"
+				:host => @ssh_local_host
 			)
 		rescue Exception => e
 			Gtk2.msgbox(sprintf(_("Could not open SSH port forward: %s"), e.message))
@@ -68,7 +77,7 @@ class Win_main
 				:type => "remote",
 				:port_local => @vnc_local_port,
 				:port_remote => @vnc_remote_port,
-				:host => "0.0.0.0"
+				:host => @vnc_local_host
 			)
 		rescue Exception => e
 			Gtk2.msgbox(sprintf(_("Could not open VNC port forward: %s"), e.message))
@@ -76,9 +85,16 @@ class Win_main
 	end
 	
 	def open_vncserver
-		@vnc = Knj::X11VNC.new(
-			:port => @vnc_local_port
-		)
+		if RUBY_PLATFORM == "i386-mingw32"
+			@vnc = Knj::Win::TightVNC.new(
+				:port => @vnc_local_port,
+				:path => $config[:tightvnc_path]
+			)
+		else
+			@vnc = Knj::X11VNC.new(
+				:port => @vnc_local_port
+			)
+		end
 	end
 	
 	def refresh_status

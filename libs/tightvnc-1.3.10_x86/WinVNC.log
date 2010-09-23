@@ -1,0 +1,44 @@
+Wed Sep 22 17:35:41 2010
+vncServer.cpp:	authhosts cleared
+vncProperties.cpp:	clearing user settings
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : FromClear called
+vncProperties.cpp:	loading DEFAULT local settings
+vncProperties.cpp:	loading "Kasper" global settings
+vncServer.cpp:	trying port number 5900
+Wed Sep 22 17:35:43 2010
+VSocket.cpp:	closing socket
+vncSockConnect.cpp:	started socket connection thread
+vncHTTPConnect.cpp:	started HTTP server thread
+vncProperties.cpp:	show per-user Properties
+vncProperties.cpp:	loading local-only settings
+vncServer.cpp:	authhosts cleared
+vncProperties.cpp:	clearing user settings
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : FromClear called
+vncProperties.cpp:	loading DEFAULT local settings
+vncProperties.cpp:	loading "Kasper" global settings
+Wed Sep 22 17:35:48 2010
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : FromText called
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : FromText called
+vncProperties.cpp:	saving current settings to registry
+vncProperties.cpp:	enddialog (OK)
+vncProperties.cpp:	dialog result = 1
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : ToText called
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : ToText called
+vncProperties.cpp:	loading local-only settings
+vncServer.cpp:	authhosts cleared
+vncProperties.cpp:	clearing user settings
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : FromClear called
+vncProperties.cpp:	loading DEFAULT local settings
+vncProperties.cpp:	loading "Kasper" global settings
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : ToText called
+i:\tightvnc-1.3.10-setup\vnc_winsrc\winvnc\vncPasswd.h:	PASSWD : ToText called
+vncMenu.cpp:	tray icon updated ok
+WinVNC.cpp:	message 49294 received
+WinVNC.cpp:	message 49359 received
+WinVNC.cpp:	message 275 received
+Wed Sep 22 17:35:52 2010
+WinVNC.cpp:	message 275 received
+vncMenu.cpp:	tray icon updated ok
+Wed Sep 22 17:35:57 2010
+WinVNC.cpp:	message 275 received
+vncMenu.cpp:	tray icon updated ok
