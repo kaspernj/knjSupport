@@ -86,6 +86,7 @@ class Win_main
 	
 	def open_vncserver
 		if RUBY_PLATFORM == "i386-mingw32"
+			Gtk2.msgbox($config[:tightvnc_path])
 			@vnc = Knj::Win::TightVNC.new(
 				:port => @vnc_local_port,
 				:path => $config[:tightvnc_path]
